@@ -1,6 +1,14 @@
 import Foundation
 import Combine
 
+
+/// Represents an asynchronous completion callback for a network request.
+/// The callback will supply either `.success` + the expected response object or
+/// else `.failure` + an `Error`.
+public typealias APICompletion<Response: Decodable> = (Result<Response, Error>) -> Void
+
+
+
 /// Network manager for making API calls.
 ///
 /// NetworkManager will be your app's main point of contact with the networking layer.
